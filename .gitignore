@@ -1,21 +1,3 @@
-# ── Personal / private ────────────────────────────────────────
-Knowledge/Himanshu_Gupta_LinkedIn_Persona.docx
-Knowledge/content_calendar.md
-CloudEzeeLogos/
-VedicBlueprintLogo/
-fonts/trail_maker_logo.png
-
-# ── Generated output ──────────────────────────────────────────
-output/
-daily_content/logs/
-
-# ── Brand-specific prompts (private) ─────────────────────────
-daily_content/MASTER_PROMPT.md
-
-# ── Secrets / config with real keys ───────────────────────────
-# config.yaml already uses REPLACE_ME placeholders — safe to commit
-# but add any local override here if needed
-
 # ── Claude Code internal ───────────────────────────────────────
 .claude/
 
