@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────────────────────
+# Daily Content Generator — Configuration
+# Fill in your API keys below.  Never commit this file to git.
+# ─────────────────────────────────────────────────────────────
+
+# ── Claude API (required for content generation) ─────────────
+anthropic:
+  api_key: "sk-ant-REPLACE_ME"
+  model: "claude-sonnet-4-6"          # or claude-opus-4-6 for higher quality
+
+# ── LinkedIn API ──────────────────────────────────────────────
+linkedin:
+  enabled: false
+  access_token: "REPLACE_ME"
+  organization_id: "REPLACE_ME"
+  # person_urn: "REPLACE_ME"
+
+# ── Instagram / Meta Graph API ────────────────────────────────
+instagram:
+  enabled: false
+  access_token: "REPLACE_ME"
+  instagram_account_id: "REPLACE_ME"
+
+# ── Brand-level overrides ─────────────────────────────────────
+brands:
+  vedic_blueprint:
+    enabled: true
+    platform: instagram
+    instagram_account_id: null
+  cloudezee:
+    enabled: true
+    platform: linkedin
+    linkedin_organization_id: null
+  trail_maker:
+    enabled: true
+    platform: instagram
+    instagram_account_id: null
+  himanshu:
+    enabled: true
+    platform: linkedin
+    linkedin_organization_id: null
+
+# ── Content schedule ──────────────────────────────────────────
+# Each day maps to a LIST of content types.
+# First item = primary (always generated).
+# Additional items = also generated that day.
+# 0=Monday … 6=Sunday
+schedule:
+  vedic_blueprint:
+    0: [reel, carousel]     # Mon  — reel + carousel
+    1: [reel]               # Tue  — reel only
+    2: [reel, single_post]  # Wed  — reel + single post
+    3: [reel, carousel]     # Thu  — reel + carousel
+    4: [reel]               # Fri  — reel only
+    5: [reel, single_post]  # Sat  — reel + single post
+    6: [reel]               # Sun  — reel only
+
+  cloudezee:                # LinkedIn
+    0: [linkedin_post]      # Mon  — thought_leadership
+    1: [linkedin_post]      # Tue  — data/stat
+    2: [linkedin_post]      # Wed  — how_to
+    3: [linkedin_carousel]  # Thu  — case study PDF carousel
+    4: [linkedin_post]      # Fri  — product spotlight
+    5: [linkedin_post]      # Sat  — light commentary (optional)
+    6: [linkedin_post]      # Sun  — (if needed)
+
+  trail_maker:
+    0: [reel, carousel]     # Mon  — reel + carousel
+    1: [reel]               # Tue  — reel only
+    2: [reel, single_post]  # Wed  — reel + single post
+    3: [reel, carousel]     # Thu  — reel + carousel
+    4: [reel]               # Fri  — reel only
+    5: [reel, single_post]  # Sat  — reel + single post
+    6: [reel]               # Sun  — reel only
+
+  himanshu:                 # LinkedIn personal — 4-5 posts/week (Tue–Sat)
+    0: []                   # Mon  — no post
+    1: [linkedin_post]      # Tue  — Leadership story
+    2: [linkedin_post]      # Wed  — Industry Hot Take
+    3: [linkedin_carousel]  # Thu  — PDF Carousel (highest engagement)
+    4: [linkedin_post]      # Fri  — Digital Transformation story
+    5: [linkedin_post]      # Sat  — Career/Personal story
+    6: []                   # Sun  — no post
+
+# ── Output settings ───────────────────────────────────────────
+output:
+  base_dir: "../output"
+  save_json: true
+  save_images: true
+  save_video: true
+
+# ── Posting settings ──────────────────────────────────────────
+posting:
+  auto_post: false
+  dry_run: true
+  post_time: "10:00"
